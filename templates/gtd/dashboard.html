@@ -1,0 +1,139 @@
+{% extends 'layouts/base.html' %}
+{%block title %} Dashboard {% endblock %}
+{%block extrahead %}
+<script type="text/javascript">
+</script>
+{% endblock %}
+
+{% block header %}
+    <div id="focus_on" class="boxshadow">
+        <ul>
+            <li class="title">Focus on</li>
+            <li>
+                <a href="." class="all{% if not status %} active{% endif %}">
+                    <span class="icon"><i> </i></span>
+                    <span>All</span>
+                </a>
+            </li>
+            <li>
+                <a href="?status=1" class="thing{% if status == '1' %} active{% endif %}">
+                    <span class="icon"><i> </i></span>
+                    <span>Things</span>
+                </a>
+            </li>
+            <li>
+                <a href="?status=2" class="waiting{% if status == '2' %} active{% endif %}">
+                    <span class="icon"><i></i></span>
+                    <span>Waiting</span>
+                </a>
+            </li>
+            <li>
+                <a href="?status=3" class="next{% if status == '3' %} active{% endif %}">
+                    <span class="icon"><i></i></span>
+                    <span>Next actions</span>
+                </a>
+            </li>
+            <li>
+                <a href="?status=4" class="delegated{% if status == '4' %} active{% endif %}">
+                    <span class="icon"><i></i></span>
+                    <span>Delegated</span>
+                </a>
+            </li>
+            <li>
+                <a href="?status=5" class="deferred{% if status == '5' %} active{% endif %}">
+                    <span class="icon"><i></i></span>
+                    <span>Deferred</span>
+                </a>
+            </li>
+            <li>
+                <a href="?status=6" class="incubate{% if status == '6' %} active{% endif %}">
+                    <span class="icon"><i></i></span>
+                    <span>Someday</span>
+                </a>
+            </li>
+            <li>
+                <a href="?status=7" class="done{% if status == '7' %} active{% endif %}">
+                    <span class="icon"><i></i></span>
+                    <span>Finish</span>
+                </a>
+            </li>          
+        </ul>
+    </div>
+{% endblock %}
+
+{% block sidebar %}
+    <h2><span class="context_icon icon"><i></i></span>Contexts</h2>
+    <ul id="contexts">
+    <li class="{% if not context_id %}active{% endif %}"><a href="?{{query_string}}context=">All</a></li>
+    {% for object in contexts %}
+    <li class="{% if context_id == object.id  %}active{% endif %}">
+        <a href="?{{query_string}}context={{object.id}}">{{object}}</a>
+        {% if object.thing_todo_count > 0 %}
+        <span class="todo">{{object.thing_todo_count}}</span>
+        {% endif %}
+    </li>
+    {% endfor %}
+    </ul>
+    
+    <h2><span class="project_icon icon"><i></i></span>Projects</h2>
+    <ul id="projects">
+    <li class="{% if not project_id %}active{% endif %}"><a href="?{{query_string}}project=">All</a></li>
+    {% for object in projects %}
+    <li class="{% if project_id == object.id  %}active{% endif %}">
+        <a href="?{{query_string}}project={{object.id}}">{{object}}</a>
+        <!-- {% if project.progress < 100 %} -->
+        <span class="progress">{{object.progress}}%</span>
+        {% else %}
+        <span class="progress done"> </span>        
+        {% endif %}
+    </li>
+    {% endfor%}
+    </ul>
+{% endblock %}
+
+{% block content %}
+    {% if context %}
+    <div id="actions" class="borderradius_10 boxshadow">
+        <a href="{% url admin:gtd_thing_add %}?context={{context.id}}">Add thing</a>
+    </div>
+    <h1>{{context}}</h1>
+    <h2>{{context.name}}</h2>
+    <dl>
+        <dt>Description:</dt>
+        <dd>{{context.description}}</dd>
+    </dl>
+    {% endif %}
+    {% if project %}
+    <div id="actions" class="borderradius_10 boxshadow">
+        <a href="{% url admin:gtd_thing_add %}?project={{project.id}}">Add thing</a>
+    </div>    
+    <h1>{{project}}</h1>
+    <h2>{{project.name}}</h2>
+    <dl>
+        <dt>Description:</dt>
+        <dd>{{project.description}}</dd>
+    </dl>
+    {% endif %}
+<ul class="thing-list">
+{% for thing in things.object_list %}
+    {% include 'gtd/thing_list_item.html'%}
+{% endfor %}
+</ul>
+
+<div class="pagination">
+    {% if things.has_previous %}
+    <a href="?{{query_string}}page=1" class="borderradius boxshadow">« start</a>
+    <a href="?{{query_string}}page={{ things.previous_page_number }}" class="borderradius boxshadow">previous</a>
+    {% endif %}
+
+    <span class="current">
+        Page {{ things.number }} of {{ things.paginator.num_pages }}
+    </span>
+
+    {% if things.has_next %}
+    <a href="?{{query_string}}page={{ things.next_page_number }}" class="borderradius boxshadow">next</a> 
+    <a href="?{{query_string}}page={{ things.end_index }}" class="borderradius boxshadow">end »</a>
+    {% endif %}
+</div>
+
+{% endblock %}

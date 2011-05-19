@@ -1,0 +1,18 @@
+.progress_bar {
+    border: 1px solid #CCC;
+    width: 100px;
+    height: 12px;
+}
+
+.progress_bar span {
+    height: 12px;
+    background-color: #CCC;
+    display: block;
+    width: 0px;
+    text-align: center;
+    font-size: .8em;
+}
+
+.thing_done {
+    font-weight: normal;
+}

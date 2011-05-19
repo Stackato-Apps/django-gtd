@@ -1,0 +1,483 @@
+@import url("reset.css");
+body, html {
+    font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+    font-size: 12px;
+    background-color: #B2B6C1;
+    margin: 0;
+    text-align: center;
+    color: #000;
+}
+
+a {
+    color: #2E5493;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #001B48;
+}
+
+h1 {
+    font-size: 2em;
+    font-family: Droid Serif, Georgia, serif;
+    margin-bottom: .3em;
+}
+
+h2 {
+    font-size: 1em;
+}
+
+.pict {
+    border: 2px solid #FFFFFF;
+    -moz-box-shadow: 0 0 10px #000000;
+    -webkit-box-shadow: 0 0 10px #000000;
+    box-shadow: 0 0 10px #000000;
+}
+
+li {
+    margin: 0;
+    padding: 0;
+}
+
+.textshadow {
+    -webkit-text-shadow: 1px 2px 3px #000;
+    -moz-text-shadow: 1px 2px 3px #000;
+    text-shadow: 1px 2px 4px #000;
+}
+
+.borderradius {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.borderradius_3 {
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.borderradius_10 {
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.boxshadow {
+    -moz-box-shadow: 0 0 6px #8A8B94;
+    -webkit-box-shadow: 0 0 6px #8A8B94;
+    box-shadow: 0 0 6px #8A8B94;
+}
+
+.icon {
+    position: absolute;
+    text-align: center;
+    left: 0;
+    top: 0;
+    width: 16px;
+}
+
+.icon i {
+    background-image: url('../img/sprite.png');
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+}
+
+.project_icon i {
+    background-position: 100% 100%;
+}
+
+.context_icon i {
+    background-position: -48px 100%;
+}
+
+p {
+    margin-top: 1em;
+    line-height: 1.4em;
+}
+
+#header, #page, #footer {
+    padding: 0 10px;
+}
+
+#wrapper {
+    text-align: left;
+}
+
+#header {
+}
+
+#header #focus_on {
+    -moz-border-radius: 0 0 5px 5px;
+    -webkit-border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px;
+    background: none repeat scroll 0 0 #737373;
+    background: -moz-linear-gradient(top, #fff 0%,  #DADADA 100%);
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#DADADA));    
+    font-size:1em;
+    height:35px;
+    line-height:20px;
+    padding: 0 1em;
+    text-align:center;
+}
+
+#header #focus_on ul {
+    list-style:none outside none;
+}
+
+#header #focus_on li {
+    display:block;
+    position:relative;
+    float:left;
+    margin:0;
+    border-right: 1px solid #DADADA;
+}
+
+#header #focus_on li a,
+#header #focus_on li a:link,
+#header #focus_on li a:visited  {
+    display:block;
+    color:#000;
+    height:35px;
+    line-height: 35px;
+    text-decoration:none;
+    padding: 0 10px 0 30px;
+}
+
+#header #focus_on a:hover,
+#header #focus_on a.active  {
+    background:none repeat scroll 0 0 rgba(255,255,255, 0.5);
+}
+
+#header #focus_on li.title {
+    font-family: Arial;
+    padding-right: 1.5em;
+    margin-left: 1em;
+    line-height: 35px;
+    font-size: 1.4em;
+}
+
+#header #focus_on li a span.icon {
+    position:absolute;
+    text-align:center;
+    left:8px;
+    top:2px;
+    width:18px;
+}
+
+#header #focus_on li a span i {
+    background-image: url('../img/sprite.png');
+    background-repeat:no-repeat;
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+}
+
+#header #focus_on a.all span i {
+    background-position: 0 -32px;
+}
+#header #focus_on a.thing span i {
+    background-position: 0 0;
+}
+#header #focus_on a.waiting span i {
+    background-position: -16px 0;
+}
+#header #focus_on a.next span i {
+    background-position: -32px 0;
+}
+#header #focus_on a.deferred span i {
+    background-position: -48px 0;
+}
+#header #focus_on a.delegated span i {
+    background-position: -64px 0;
+}
+#header #focus_on a.incubate span i {
+    background-position: -16px -16px;
+}
+#header #focus_on a.done span i {
+    background-position: 0 -16px;
+}
+
+#footer {
+    font-size: .9em;
+    font-style: italic;
+	padding-top: 10px;
+    color:#555;
+}
+
+/* --------------------- */
+
+#content {
+    margin-left: 215px;
+    padding: 0 10px;
+}
+
+/* --------------------- */
+
+#sidebar {
+    float: left;
+    margin-left: 10px;
+    background-color: #D2DBE5;
+    padding: 1em;
+    margin-top: 7px;
+    width: 180px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+}
+
+#sidebar h2 {
+    position: relative;
+    padding: 1px 0 .5em 20px;
+    margin: .5em 0 0 0;
+    line-height: 16px;
+    border-bottom: 1px solid #B6BDC7;
+}
+
+#sidebar ul {
+    border-top: 1px solid #EAF4FF;
+    padding-bottom: 1em;
+    padding-top: .5em;
+}
+
+#sidebar ul li {
+    margin: 2px 0;
+    padding: 2px 0;
+}
+
+#sidebar ul li a {
+    padding: 0 .6em;
+    background-position: 0;
+    background-repeat: no-repeat;
+    line-height: 16px;
+}
+
+#sidebar ul li.active {
+    border-radius: 16px;
+    -moz-border-radius: 16px;
+    background-color: #375B8D;
+}
+
+#sidebar ul li.active a {
+    color: #FFF;
+}
+
+#sidebar ul li.active span.progress {
+    background-color: #fff;
+    color: #333;
+}
+
+#sidebar ul li span.progress {
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    background-color: #2E33C9;
+    width: 30px;
+    overflow: hidden;
+    color: #fff;
+    padding: 0 .6em;
+}
+
+#sidebar ul li span.done {
+    background-color: #149A12;
+}
+
+#sidebar ul li span.todo {
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    background-color: #FFF;
+    width: 30px;
+    overflow: hidden;
+    color: #333;
+    padding: 0 .6em;
+}
+/* --------------------- */
+
+#actions {
+    background: #333;
+    float: right;
+}
+
+#actions a {
+    display: block;
+    color: #fff;
+    padding: .3em .6em;
+}
+
+/* --------------------- */
+
+.thing-list li.state_1, .state_thing {}
+.thing-list li.state_1  .status_icons a {
+    background-position: 0 0;
+}
+
+.thing-list li.state_2, .state_waiting {}
+.thing-list li.state_2  .status_icons a {
+    background-position: -16px 0;
+}
+
+.thing-list li.state_3, .state_actionable {}
+.thing-list li.state_3  .status_icons a {
+    background-position: -32px 0;
+}
+
+.thing-list li.state_4, .state_delegated {}
+.thing-list li.state_4  .status_icons a {
+    background-position: 16px 0;
+}
+
+.thing-list li.state_5, .state_deferred { height: 22px; }
+.thing-list li.state_5  .status_icons a {
+    background-position: 32px 0;
+}
+
+.thing-list li.state_6, .state_incubate {}
+.thing-list li.state_6  .status_icons a {
+    background-position: -16px -16px;
+}
+
+.thing-list li.state_7, .state_done {
+    background: #D6D6E6 !important;
+    -moz-box-shadow: none;
+    color: #333;
+}
+
+.thing-list li.state_7  .status_icons a {
+    background-position: 0 -16px;
+}
+
+/* ------------------- */
+.thing-list li.progress-thing {
+    height: 22px;
+}
+
+.thing-list li.progress-thing .progress {
+    background: -moz-linear-gradient(top, #6F6F6F 0%, #C1C1C1 100%);;
+    margin-top: 10px;
+    height: 5px;
+}
+
+.thing-list li {
+    margin-top: .6em;
+    background:none repeat scroll 0 0 #FCFCFC;
+    background: -moz-linear-gradient(top, #FFF 0%, #EBEBEB 100%);
+    background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#EBEBEB));
+    padding: 1em .8em;
+    height: 1em;
+}
+
+.thing-list li:hover {
+    background: -moz-linear-gradient(top, #FFFBD6 30%, #FFF490 70%);
+    background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#EBEBEB));
+
+}
+
+.thing-list li a {
+    color: #000;
+}
+
+.thing-list li input {
+    margin: 0;
+    padding: 0;
+}
+
+.thing-list li .status_icons {
+    float: right;
+    margin-top: -2px;
+}
+
+.thing-list li .status_icons a {
+    display: block;
+    width: 16px; height: 16px;
+    background-image: url('../img/sprite.png');
+}
+
+.thing-list li .context {
+    float: right;
+    margin-right: .5em;
+}
+
+.thing-list li a.context_tag {
+    padding: 3px 4px;
+    background: #9AA1B5;
+    color: #FFFFFF;
+}
+
+.thing-list li a.context_tag:hover {
+    background: #5C7ACF;
+    color: #FFFFFF;
+}
+
+.thing-list li a.project_tag {
+    background-color: #C2DCFF;
+    color: #00395F;
+    padding: 3px 4px;
+    margin-right: .5em;
+}
+
+.thing-list li a.project_tag:hover {
+    background-color: #96C3FF;
+}
+
+.thing-list li.state_7 a.context_tag,
+.thing-list li.state_7 a.project_tag {
+    background-color: #D6D6E6;
+    color: #333;
+}
+
+.thing-list li.state_7 a.context_tag:hover,
+.thing-list li.state_7 a.project_tag:hover {
+    background: #9AA1B5;
+    color: #FFFFFF;
+}
+
+.thing-list li .duedate {
+    float: left;
+    width: 46px;
+    background-color: #FFFFFF;
+    text-align: center;
+    margin-top: -16px;
+    margin-left: -5px;
+    margin-right: .6em;
+}
+.thing-list li .duedate .month {
+    background-color: #AB0000;
+    color: #FFFFFF;
+    padding: 0 .5em;
+    -moz-border-radius: 3px 3px 0 0;
+    -webkit-border-radius: 3px 3px 0 0;
+    border-radius: 3px 3px 0 0;
+    line-height: 16px;
+}
+
+.thing-list li .duedate .day {
+    padding: 2px;
+    font-size: 18px;
+    font-family: serif;
+    font-weight: bold;
+    line-height: 26px;
+}   
+
+.hidden {
+    height:1px;
+    left:-9999px;
+    overflow:hidden;
+    position:absolute;
+    top:0;
+    width:1px;
+}
+
+.pagination {
+    margin: 2em 0;
+    text-align: right;
+}
+
+.pagination a {
+    background-color: #fff;
+    padding: .5em;
+    font-weight: bold;
+}
+
+.pagination .current {
+    margin: 0 1em;
+}

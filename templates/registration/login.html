@@ -1,0 +1,21 @@
+{% extends "databrowse/base.html" %}
+{% block databrowse_title %}Login{% endblock %}
+
+{% block content %}
+{% if form.errors %}
+<p>Por favor, introduzca un nombre de usuario y contraseña correctos.
+Note que ambos campos son sensibles a mayúsculas/minúsculas..</p>
+{% endif %}
+<form method="post" action="{% url django.contrib.auth.views.login %}">{% csrf_token %}
+    <p>
+        {{ form.username.label_tag }}<br />
+        {{ form.username }}
+    </p>
+    <p>
+        {{ form.password.label_tag }}<br />
+        {{ form.password }}
+    </p>
+    <input type="submit" value="Inicio de sesión" />
+    <input type="hidden" name="next" value="{{ next }}" />
+</form>
+{% endblock %}

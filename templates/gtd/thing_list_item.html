@@ -1,0 +1,17 @@
+<li class="borderradius_3 boxshadow state_{{thing.status}} deleted_{{thing.deleted|lower}}{% if thing.progress > 0 and not thing.status == thing.STATE_DONE %} progress-thing{% endif %}">
+<div class="status_icons">{% include 'gtd/status_icons.html' %}</div>
+<div class="context">
+	<a href="{% url admin:gtd_context_change thing.context.id %}" class="context_tag borderradius_10">{{thing.context}}</a>
+</div>
+<div class="thing-info">
+{% if thing.status == thing.STATE_DEFERRED %}
+<div class="duedate borderradius_3 boxshadow">
+    <div class="month">{{thing.schedule|date:"b"|default:"&nbsp;"}}</div>
+    <div class="day">{{thing.schedule.day|default:"?"}}</div>
+</div>
+{% endif %}
+<span>{% if thing.project %}<a class="project_tag borderradius_3" href="{% url admin:gtd_project_change thing.project.id %}">{{thing.project}}</a>{% endif %}
+<a href="{% url admin:gtd_thing_change thing.id %}">{{thing.name}}</a></span><br />
+</div>
+{% if thing.progress > 0 and not thing.status == thing.STATE_DONE %}<div class="progress borderradius_3" style="width: {{thing.progress}}%;"></div>{% endif %}
+</li>

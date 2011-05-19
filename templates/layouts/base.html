@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+<head>
+	<title>{%block title %}{% endblock %}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="icon" href="{{MEDIA_URL}}img/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="{{MEDIA_URL}}css/styles.css" type="text/css" media="screen" />
+    {% block extrahead %}{% endblock %}
+</head>
+
+<body>
+<div id="wrapper">
+    <div id="header">{% block header %}{% endblock %}</div>
+    <div id="sidebar" class="boxshadow">{% block sidebar %}{% endblock %}</div>
+    <div id="content">{% block content %}{% endblock %}</div>
+    <div id="footer"></div>
+</div>
+</body>
+</html>

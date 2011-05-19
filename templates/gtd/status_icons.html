@@ -1,0 +1,21 @@
+{% if thing.status == thing.STATE_THING %}
+<a href="#" title="a Thing"> </a>
+{% endif %}
+{% if thing.status == thing.STATE_WAITING %}
+<a href="#" title="Waiting for"> </a>
+{% endif %}
+{% if thing.status == thing.STATE_DELEGATED %}
+<a href="#" title="Delegated"> </a>
+{% endif %}
+{% if thing.status == thing.STATE_DEFERRED %}
+<a href="#" title="Deferred"> </a>
+{% endif %}        
+{% if thing.status == thing.STATE_ACTIONABLE %}
+<a href="#" title="Actionable"> </a>
+{% endif %}      
+{% if thing.status == thing.STATE_DONE %}
+<a href="#" title="Done"> </a>
+{% endif %}
+{% if thing.status == thing.STATE_INCUBATE %}
+<a href="#" title="Some Day / Maybe"> </a>
+{% endif %} 

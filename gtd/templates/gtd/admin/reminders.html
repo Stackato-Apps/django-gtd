@@ -1,0 +1,3 @@
+{% for reminder in thing.reminder_set.all %}
+    <big><a href="{% url admin:gtd_reminder_change reminder.id %}" title="{{reminder}}">⚑ </a></big>
+{% endfor %}
