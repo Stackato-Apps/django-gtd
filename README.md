@@ -1,5 +1,8 @@
 # Django GTD application
 
+This is a sample app demonstrating a databased-backed application
+making use of the Django admin.
+
 ## Local development
 
     pypm install -r requirements.txt
@@ -9,11 +12,11 @@
 
 ## Deploying to Stackato
 
-    stackato push django-gtd
-    stackato run "python manage.py syncdb --noinput"
-    stackato run "python manage.py migrate --noinput"
-
-### Limitations
-
-Django admin's superuser creation cannot be automated (note:
-``--noinput``), so /admin/ is unusable for this app.
+    stackato push djangogtd
+    stackato run djangogtd "python manage.py syncdb --noinput"
+    stackato run djangogtd "python manage.py migrate --noinput"
+    # Create the admin user
+    stackato run djangogtd "python manage.py createsuperuser --username=admin --email=admin@mydomain.com --noinput"
+    stackato run djangogtd "python manage.py changepassword2 admin secret123"
+    # Visit the app; go to /admin/ to add tasks, projects and contexts.
+ 
