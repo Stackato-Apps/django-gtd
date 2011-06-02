@@ -13,10 +13,14 @@ making use of the Django admin.
 ## Deploying to Stackato
 
     stackato push djangogtd
+    # Answer "yes" when asked to bind any services and select "mysql"
+
     stackato run djangogtd "python manage.py syncdb --noinput"
     stackato run djangogtd "python manage.py migrate --noinput"
+
     # Create the admin user
     stackato run djangogtd "python manage.py createsuperuser --username=admin --email=admin@mydomain.com --noinput"
     stackato run djangogtd "python manage.py changepassword2 admin secret123"
+
     # Visit the app; go to /admin/ to add tasks, projects and contexts.
  
