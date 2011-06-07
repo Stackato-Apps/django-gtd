@@ -1,11 +1,9 @@
-# Django GTD application
+# Django GTD
 
-This is a sample Getting Things Done (GTD) app demonstrating a
-databased-backed application making use of the Django admin. To create
-projects, actions, context or to make any modifications use the Django
-admin located at ``http://<yourapp>.domain.com/admin/``.
-
-Technologies used: Django, MySQL
+A sample Getting Things Done (GTD) app using MySQL and the Django admin
+interface. To create projects, actions, context or make any
+modifications, use the Django admin URL at
+``http://<yourapp>.yourdomain.com/admin/``.
 
 ## Local development
 
