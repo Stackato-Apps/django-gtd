@@ -1,4 +1,4 @@
 django
-mysql-python
+psycopg2
 south
 django-stackato
