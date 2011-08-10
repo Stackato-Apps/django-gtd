@@ -1,0 +1,9 @@
+name: gtd
+
+framework:
+  type: python
+
+mem: 64M
+
+services:
+  postgresql: postgresql-gtd
