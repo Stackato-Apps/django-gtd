@@ -7,3 +7,8 @@ mem: 64M
 
 services:
   postgresql: postgresql-gtd
+
+ignore: [
+    .git
+    dev.db
+]

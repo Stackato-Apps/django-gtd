@@ -2,7 +2,7 @@
 
 A sample Getting Things Done (GTD) app using PostgreSQL and the Django admin
 interface. To create projects, actions, context or make any modifications, use
-the Django admin URL at ``http://<yourapp>.yourdomain.com/admin/``.
+the Django admin URL at ``http://gtd.stackato.local/admin/``.
 
 ## Local development
 
@@ -13,17 +13,16 @@ the Django admin URL at ``http://<yourapp>.yourdomain.com/admin/``.
 
 ## Deploying to Stackato
 
-    stackato push djangogtd
-    # Answer "yes" when asked to bind any services and select "postgresql"
+    stackato push -n
 
-    stackato run djangogtd python manage.py syncdb --noinput
-    stackato run djangogtd python manage.py migrate --noinput
+    stackato run gtd python manage.py syncdb --noinput
+    stackato run gtd python manage.py migrate --noinput
 
     # Create the admin user
-    stackato run djangogtd python manage.py createsuperuser --username=admin --email=admin@mydomain.com --noinput
-    stackato run djangogtd python manage.py changepassword2 admin secret123
+    stackato run gtd python manage.py createsuperuser --username=admin --email=admin@mydomain.com --noinput
+    stackato run gtd python manage.py changepassword2 admin secret123
 
-    # Visit the app; go to /admin/ to add tasks, projects and contexts.
+    # Visit http://gtd.stackato.local/; go to /admin/ to add tasks, projects and contexts.
  
 ## Want to use MySQL?
 
