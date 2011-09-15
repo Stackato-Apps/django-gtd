@@ -1,14 +1,14 @@
 name: gtd
 
-framework:
-  type: python
-
 mem: 64M
+
+env:
+  DJANGO_SETTINGS_MODULE: settings
 
 services:
   postgresql: postgresql-gtd
 
-ignore: [
-    .git
-    dev.db
-]
+ignore: 
+  .git
+  dev.db
+
