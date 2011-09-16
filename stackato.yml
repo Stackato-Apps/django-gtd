@@ -5,6 +5,9 @@ mem: 64M
 env:
   DJANGO_SETTINGS_MODULE: settings
 
+hooks:
+  post-staging: sh -x ./setup.sh
+
 services:
   postgresql: postgresql-gtd
 
