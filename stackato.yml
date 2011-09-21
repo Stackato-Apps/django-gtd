@@ -6,7 +6,11 @@ env:
   DJANGO_SETTINGS_MODULE: settings
 
 hooks:
-  post-staging: sh -x ./setup.sh
+  post-staging:
+    - python manage.py syncdb --noinput
+    - python manage.py migrate --noinput
+    - python manage.py createsuperuser --username=admin --email=admin@mydomain.com --noinput
+    - python manage.py changepassword2 admin secret123
 
 services:
   postgresql: postgresql-gtd
@@ -14,4 +18,3 @@ services:
 ignore: 
   .git
   dev.db
-
