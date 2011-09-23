@@ -15,6 +15,6 @@ hooks:
 services:
   postgresql: postgresql-gtd
 
-ignore: 
-  .git
-  dev.db
+ignores: 
+  - .git
+  - dev.db
