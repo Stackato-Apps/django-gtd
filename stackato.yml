@@ -10,7 +10,7 @@ hooks:
     - python manage.py syncdb --noinput
     - python manage.py migrate --noinput
     - python manage.py createsuperuser --username=admin --email=admin@mydomain.com --noinput
-    - python manage.py changepassword2 admin secret123
+    - python manage.py changepassword2 admin secret1234
 
 services:
   postgresql: postgresql-gtd
