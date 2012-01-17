@@ -119,7 +119,6 @@ INSTALLED_APPS = (
     'django.contrib.humanize',
     'gtd',
     'south',
-    'django_stackato',
 )
 
 # try:
