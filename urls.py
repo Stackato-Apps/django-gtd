@@ -16,7 +16,7 @@ urlpatterns = patterns('',
     url(r'^$', lambda request: redirect('/gtd')),
 )
 
-if settings.DEBUG:
+if settings.DEBUG or settings.STACKATO:
     from os.path import join, dirname, abspath
     urlpatterns += patterns('',
         url(r'^media/admin/(?P<path>.*)$', 'django.views.static.serve',

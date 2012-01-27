@@ -1,7 +1,7 @@
 # Django settings for djangogtd project.
 import sys, os
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ROOT = os.path.abspath(os.path.dirname(__file__))
@@ -12,9 +12,10 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+STACKATO = 'VCAP_SERVICES' in os.environ
 
 ## Pull in CloudFoundry's production settings
-if 'VCAP_SERVICES' in os.environ:
+if STACKATO:
     import json
     vcap_services = json.loads(os.environ['VCAP_SERVICES'])
     # XXX: avoid hardcoding here
@@ -117,6 +118,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'django.contrib.databrowse',
     'django.contrib.humanize',
+    'django.contrib.staticfiles',    
     'gtd',
     'south',
 )
