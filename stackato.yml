@@ -1,7 +1,5 @@
 name: gtd
 
-mem: 64M
-
 env:
   DJANGO_SETTINGS_MODULE: settings
 
@@ -11,3 +9,6 @@ services:
 ignores: 
   - .git
   - dev.db
+
+min_version:
+  server: 0.9.0
