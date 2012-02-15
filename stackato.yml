@@ -3,6 +3,12 @@ name: gtd
 env:
   DJANGO_SETTINGS_MODULE: settings
 
+requirements:
+  pypm:
+    - psycopg2
+    - django
+    - south
+
 services:
   postgresql: postgresql-gtd
 
@@ -11,4 +17,5 @@ ignores:
   - dev.db
 
 min_version:
-  server: 0.9.0
+  server: 0.9.0.143
+
