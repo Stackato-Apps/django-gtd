@@ -29,9 +29,5 @@ Visit http://gtd.stackato.local/ to see the list of tasks. Visit http://gtd.stac
 To use mysql instead of postgresql on production, you need to make only a few
 changes before pushing (or updating) your app:
 
-  * In requirements.txt, replace `psycopg2` with `mysql-python`
-  * In settings.py, replace `django.db.backends.postgresql_psycopg2` with
-    `django.db.backends.mysql`
-  * In settings.py, replace `vcap_services['postgresql-8.4'][0]` with
-    `vcap_services['mysql-5.1'][0]`
-  * In stackato.yml, replace `postgresql` with `mysql.
+  * In stackato.yml, replace `postgresql` with `mysql` under *services*.
+  * In stackato.yml, replace `psycopg2` with `mysql-python` under *requirements*.

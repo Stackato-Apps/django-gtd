@@ -10,7 +10,7 @@ requirements:
     - south
 
 services:
-  postgresql: postgresql-gtd
+  postgresql-gtd: postgresql
 
 ignores: 
   - .git
