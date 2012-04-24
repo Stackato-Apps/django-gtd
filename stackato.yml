@@ -12,6 +12,12 @@ requirements:
 services:
   postgresql: postgresql-gtd
 
+hooks:
+  post-staging:
+    - python manage.py syncdb --noinput
+    - python manage.py migrate
+    - echo "Run 'stackato run python manage.py createsuperuser' to create an admin user"
+
 ignores: 
   - .git
   - dev.db

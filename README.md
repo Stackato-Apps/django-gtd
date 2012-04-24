@@ -16,12 +16,7 @@ the Django admin URL at ``http://gtd.stackato.local/admin/``.
 Push to the cloud, and then initialize the database:
 
     stackato push -n
-    stackato run python manage.py syncdb  # prompts for admin password
-    stackato run python manage.py migrate
 
-NOTE: if you get a postgres DatabaseError ``terminating connection due
-to administrator command``, simply re-run the previous command.
-    
 Visit http://gtd.stackato.local/ to see the list of tasks. Visit http://gtd.stackato.local/admin/ to modify tasks, projects and contexts.
  
 ## Want to use MySQL?
