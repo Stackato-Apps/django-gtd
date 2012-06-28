@@ -1,23 +1,21 @@
-name: gtd
-
+name: django-gtd
 env:
   DJANGO_SETTINGS_MODULE: settings
-
 requirements:
   pypm:
     - psycopg2
     - django
     - south
-
+  pip:
+    - python-memcached
 services:
   postgresql-gtd: postgresql
-
+  memcached-gtd: memcached
 hooks:
   post-staging:
     - python manage.py syncdb --noinput
     - python manage.py migrate
     - echo "Run 'stackato run python manage.py createsuperuser' to create an admin user"
-
 ignores: 
   - .git
   - dev.db
