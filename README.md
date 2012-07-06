@@ -1,8 +1,8 @@
 # Django GTD
 
-A sample *Getting Things Done* (GTD) app using PostgreSQL and the Django admin
+A sample *Getting Things Done* (GTD) app using PostgreSQL, Memcached and the Django admin
 interface. To create projects, actions, context or make any modifications, use
-the Django admin URL at ``http://gtd.stackato.local/admin/``.
+the Django admin URL at ``http://<app-url>/admin/``.
 
 ## Local development
 
