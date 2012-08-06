@@ -1,4 +1,6 @@
 name: django-gtd
+framework: python
+runtime: python27
 env:
   DJANGO_SETTINGS_MODULE: settings
 requirements:
@@ -8,9 +10,11 @@ requirements:
     - south
   pip:
     - python-memcached
+min_version:
+  client: 1.4.3
 services:
-  postgresql-gtd: postgresql
-  memcached-gtd: memcached
+  ${name}-db: postgresql
+  ${name}-cache: memcached
 hooks:
   post-staging:
     - python manage.py syncdb --noinput
