@@ -14,7 +14,7 @@ min_version:
   client: 1.4.3
 services:
   ${name}-db: postgresql
-  ${name}-cache: memcached
+  ${name}-memcache: memcached
 hooks:
   post-staging:
     - python manage.py syncdb --noinput
