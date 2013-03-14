@@ -1,6 +1,7 @@
 name: django-gtd
-framework: python
-runtime: python27
+framework:
+  type: python
+  runtime: python27
 env:
   DJANGO_SETTINGS_MODULE: settings
 requirements:
