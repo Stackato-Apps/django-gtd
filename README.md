@@ -19,10 +19,10 @@ Push to the cloud, and then initialize the database:
 
 Visit http://gtd.stackato.local/ to see the list of tasks. Visit http://gtd.stackato.local/admin/ to modify tasks, projects and contexts.
  
-## Want to use MySQL?
+## Want to use PostgreSQL?
 
 To use mysql instead of postgresql on production, you need to make only a few
 changes before pushing (or updating) your app:
 
-  * In stackato.yml, replace `postgresql` with `mysql` under *services*.
-  * In stackato.yml, replace `psycopg2` with `mysql-python` under *requirements*.
+  * In stackato.yml, replace `mysql` with `postgresql` under *services*.
+  * In stackato.yml, replace `mysql-python` with `psycopg2` under *requirements*.
