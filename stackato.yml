@@ -5,22 +5,21 @@ framework:
 env:
   DJANGO_SETTINGS_MODULE: settings
 requirements:
-  pypm:
-    - psycopg2
+  pip:
+    - mysql-python
     - django
     - south
-  pip:
     - python-memcached
 min_version:
   client: 1.4.3
 services:
-  ${name}-db: postgresql
+  ${name}-db: mysql
   ${name}-memcache: memcached
 hooks:
   post-staging:
     - python manage.py syncdb --noinput
-    - python manage.py migrate
+    - python manage.py migrate --noinput
     - echo "Run 'stackato run python manage.py createsuperuser' to create an admin user"
-ignores: 
+ignores:
   - .git
   - dev.db
