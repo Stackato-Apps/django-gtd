@@ -94,7 +94,7 @@
 {% block content %}
     {% if context %}
     <div id="actions" class="borderradius_10 boxshadow">
-        <a href="{% url admin:gtd_thing_add %}?context={{context.id}}">Add thing</a>
+        <a href="{% url "admin:gtd_thing_add" %}?context={{context.id}}">Add thing</a>
     </div>
     <h1>{{context}}</h1>
     <h2>{{context.name}}</h2>
@@ -105,7 +105,7 @@
     {% endif %}
     {% if project %}
     <div id="actions" class="borderradius_10 boxshadow">
-        <a href="{% url admin:gtd_thing_add %}?project={{project.id}}">Add thing</a>
+        <a href="{% url "admin:gtd_thing_add" %}?project={{project.id}}">Add thing</a>
     </div>    
     <h1>{{project}}</h1>
     <h2>{{project.name}}</h2>
