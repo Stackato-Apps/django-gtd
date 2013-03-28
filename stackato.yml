@@ -14,11 +14,12 @@ min_version:
   client: 1.4.3
 services:
   ${name}-db: mysql
-  ${name}-memcache: memcached
+  ${name}-memcached: memcached
 hooks:
   post-staging:
     - python manage.py syncdb --noinput
     - python manage.py migrate --noinput
+    - python manage.py collectstatic --noinput
     - echo "Run 'stackato run python manage.py createsuperuser' to create an admin user"
 ignores:
   - .git
