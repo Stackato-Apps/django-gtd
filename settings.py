@@ -27,11 +27,11 @@ if 'DATABASE_URL' in os.environ:
         'HOST': url.hostname,
         'PORT': url.port,
         }
-    CACHES = {
-        'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': os.getenv('MEMCACHE_URL'),
-        }
+    # CACHES = {
+    #     'default': {
+    #     'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+    #     'LOCATION': os.getenv('MEMCACHE_URL'),
+    #     }
     }
     if url.scheme == 'postgres':
         DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
