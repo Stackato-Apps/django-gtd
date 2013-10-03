@@ -2,3 +2,4 @@ mysql-python
 django
 south
 python-memcached
+gunicorn

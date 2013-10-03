@@ -32,7 +32,7 @@ if 'DATABASE_URL' in os.environ:
     #     'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
     #     'LOCATION': os.getenv('MEMCACHE_URL'),
     #     }
-    }
+    # }
     if url.scheme == 'postgres':
         DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
     elif url.scheme == 'mysql':
