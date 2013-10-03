@@ -1,17 +1,8 @@
 name: django-gtd
-framework:
-  type: python
-  runtime: python27
 env:
   DJANGO_SETTINGS_MODULE: settings
-requirements:
-  pip:
-    - mysql-python
-    - django
-    - south
-    - python-memcached
 min_version:
-  client: 1.4.3
+  client: 2.0.0
 services:
   ${name}-db: mysql
   # ${name}-memcached: memcached

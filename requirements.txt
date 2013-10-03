@@ -1,0 +1,4 @@
+mysql-python
+django
+south
+python-memcached
