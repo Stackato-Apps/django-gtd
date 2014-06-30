@@ -8,10 +8,10 @@ services:
   # ${name}-memcached: memcached
 hooks:
   post-staging:
-    - python manage.py syncdb --noinput
-    - python manage.py migrate --noinput
-    - python manage.py collectstatic --noinput
-    - echo "Run 'stackato run python manage.py createsuperuser' to create an admin user"
+  - python manage.py syncdb --noinput
+  - python manage.py migrate --noinput
+  - python manage.py collectstatic --noinput
+  - echo "Run 'stackato run python manage.py createsuperuser' to create an admin user"
 ignores:
-  - .git
-  - dev.db
+- .git
+- dev.db
