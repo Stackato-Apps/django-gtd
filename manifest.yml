@@ -1,0 +1,22 @@
+applications:
+- name: django-gtd
+  services:
+    ${name}-db:
+      type: mysql
+  # ${name}-memcached:
+    # type: memcached
+  stackato:
+    env:
+      DJANGO_SETTINGS_MODULE:
+        default: settings
+    hooks:
+      post-staging:
+      - python manage.py syncdb --noinput
+      - python manage.py migrate --noinput
+      - python manage.py collectstatic --noinput
+      - echo "Run 'stackato run python manage.py createsuperuser' to create an admin user"
+    ignores:
+    - .git
+    - dev.db
+    min_version:
+      client: 2.0.0
