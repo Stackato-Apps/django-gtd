@@ -17,8 +17,13 @@ Push to the cloud, and then initialize the database:
 
     stackato push -n
 
-Visit http://gtd.stackato.local/ to see the list of tasks. Visit http://gtd.stackato.local/admin/ to modify tasks, projects and contexts.
- 
+Visit http://gtd.stackato.local/ to see the list of tasks. Visit http://gtd.stackato.local/admin/ to modify tasks, projects and contexts. The credentials for the admin account are
+
+```
+Username: stackato
+Password: stackato
+```
+
 ## Want to use PostgreSQL?
 
 To use mysql instead of postgresql on production, you need to make only a few
