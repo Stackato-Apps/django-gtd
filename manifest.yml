@@ -4,8 +4,6 @@ applications:
   services:
     ${name}-db:
       type: mysql
-  # ${name}-memcached:
-    # type: memcached
   stackato:
     env:
       DJANGO_SETTINGS_MODULE:
@@ -15,7 +13,7 @@ applications:
       - python manage.py syncdb --noinput
       - python manage.py migrate --noinput
       - python manage.py collectstatic --noinput
-      - echo "Run 'stackato run python manage.py createsuperuser' to create an admin user"
+      - echo "Run 'stackato run --application <app_name> python manage.py createsuperuser' to create an admin user"
     ignores:
     - .git
     - dev.db
