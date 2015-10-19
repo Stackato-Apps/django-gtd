@@ -11,7 +11,7 @@ the Django admin URL at ``http://<app-url>/admin/``.
     python manage.py migrate
     python manager.py runserver
 
-## Deploying to Stackato
+## Deploying to HPE Helion Stackato
 
 Push to the cloud, and then initialize the database:
 
