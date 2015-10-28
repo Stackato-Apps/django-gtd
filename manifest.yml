@@ -1,7 +1,7 @@
 applications:
 - name: django-gtd
   docker_image: stackatoapps/django-gtd:latest
-  mem: 128M
+  memory: 128M
   services:
     ${name}-db:
       type: mysql
