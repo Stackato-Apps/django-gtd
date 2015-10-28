@@ -1,6 +1,6 @@
 applications:
 - name: django-gtd
-  mem: 128M
+  memory: 128M
   services:
     ${name}-db:
       type: mysql
