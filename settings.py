@@ -2,6 +2,7 @@
 import os
 import sys
 import urlparse
+import json
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -18,14 +19,16 @@ MANAGERS = ADMINS
 STACKATO = 'VCAP_APPLICATION' in os.environ
 
 DATABASES = {}
-if 'DATABASE_URL' in os.environ:
-    url = urlparse.urlparse(os.environ['DATABASE_URL'])
+if os.getenv('VCAP_SERVICES'):
+    vcap_services = json.loads(os.getenv('VCAP_SERVICES'))
+    service_name = vcap_services.keys()[0]
+    credentials = vcap_services[service_name][0]['credentials']
     DATABASES['default'] = {
-        'NAME': url.path[1:],
-        'USER': url.username,
-        'PASSWORD': url.password,
-        'HOST': url.hostname,
-        'PORT': url.port,
+        'NAME': credentials['name'],
+        'USER': credentials['user'],
+        'PASSWORD': credentials['password'],
+        'HOST': credentials['host'],
+        'PORT': credentials['port']
         }
     # CACHES = {
     #     'default': {
@@ -33,9 +36,9 @@ if 'DATABASE_URL' in os.environ:
     #     'LOCATION': os.getenv('MEMCACHE_URL'),
     #     }
     # }
-    if url.scheme == 'postgres':
+    if 'postgres' in service_name.lower():
         DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
-    elif url.scheme == 'mysql':
+    elif 'mysql' in service_name.lower():
         DATABASES['default']['ENGINE'] = 'django.db.backends.mysql'
 else:
     DATABASES['default'] = {
