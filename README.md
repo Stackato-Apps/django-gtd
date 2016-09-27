@@ -15,13 +15,13 @@ the Django admin URL at ``http://<app-url>/admin/``.
 
 Push to the cloud, and then initialize the database:
 
-    stackato push -n
+    cf push
 
-After deploying run the following to create an admin user:
+After deploying run the following to create an admin user [cf ssh](http://docs.cloudfoundry.org/devguide/deploy-apps/ssh-apps.html) into the application instance and run:
 
-    stackato run --application <app_name> python manage.py createsuperuser
+    python manage.py createsuperuser
 
-Visit http://gtd.stackato.local/ to see the list of tasks. Visit http://gtd.stackato.local/admin/ to modify tasks, projects and contexts.
+Visit <your-app-url> to see the list of tasks. Visit <your-app-url>/admin/ to modify tasks, projects and contexts.
  
 ## Want to use PostgreSQL?
 

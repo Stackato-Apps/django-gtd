@@ -21,10 +21,13 @@ STACKATO = 'VCAP_APPLICATION' in os.environ
 DATABASES = {}
 if os.getenv('VCAP_SERVICES'):
     vcap_services = json.loads(os.getenv('VCAP_SERVICES'))
-    service_name = vcap_services.keys()[0]
+    service_name = ''
+    for key in vcap_services.keys():
+        if 'sql' in key:
+            service_name = key
     credentials = vcap_services[service_name][0]['credentials']
     DATABASES['default'] = {
-        'NAME': credentials['name'],
+        'NAME': credentials['database'],
         'USER': credentials['user'],
         'PASSWORD': credentials['password'],
         'HOST': credentials['host'],

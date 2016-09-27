@@ -1,21 +1,11 @@
 applications:
 - name: django-gtd
+  buildpack: https://github.com/cloudfoundry/python-buildpack
+  command: python manage.py syncdb --noinput && python manage.py migrate --noinput && python manage.py collectstatic --noinput && gunicorn wsgi:application
+  env:
+    DJANGO_SETTINGS_MODULE: settings
   memory: 128M
   services:
-    ${name}-db:
-      type: mysql
-  stackato:
-    env:
-      DJANGO_SETTINGS_MODULE:
-        default: settings
-    hooks:
-      post-staging:
-      - python manage.py syncdb --noinput
-      - python manage.py migrate --noinput
-      - python manage.py collectstatic --noinput
-      - echo "Run 'stackato run --application <app_name> python manage.py createsuperuser' to create an admin user"
-    ignores:
-    - .git
-    - dev.db
-    min_version:
-      client: 2.0.0
+    # mysql
+    - django-gtd-db
+  stack: cflinuxfs2
