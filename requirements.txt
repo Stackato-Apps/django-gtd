@@ -1,5 +1,5 @@
 mysql-python
-django==1.4
+django==1.11.28
 south
 python-memcached
 gunicorn
